@@ -146,7 +146,7 @@ public function getCertifccicateSignature(string $cer): string
     }
 
     $signatureLines = explode("\n", $signature[0]);
-    
+
     // Ensure there are enough lines to concatenate
     if (count($signatureLines) < 5) {
         throw new \RuntimeException('Invalid signature format.');
@@ -164,14 +164,14 @@ public function getCertifccicateSignature(string $cer): string
         openssl_x509_export($res, $out, FALSE);
 
       //  $out = explode('Signature Algorithm:', $out);
-       
+
         $out = explode('-----BEGIN CERTIFICATE-----', $out);
-      
+
         $out = explode("\n", $out[0]);
         $out = $out[1] . $out[2] . $out[3] . $out[4];
         $out = str_replace([':', ' '], '', $out);
     $out = explode('-----END CERTIFICATE-----', $out);
-    $string = implode("", $out); 
+    $string = implode("", $out);
   return  bin2hex($string);
         //return pack('H*', $string);
     }
@@ -480,7 +480,7 @@ public function getCertifccicateSignature(string $cer): string
                 $ipt .= $invoice_price_template;
             }
             $invoice_line_template_copy = str_replace('AllowanceCharge', $ipt, $invoice_line_template_copy);
-
+            $invoice_line_template_copy = str_replace('___PriceAmount', $item['cac:Price']['cbc:PriceAmount']['#text'], $invoice_line_template_copy);
             $invoice_line .= $invoice_line_template_copy;
         }
 
