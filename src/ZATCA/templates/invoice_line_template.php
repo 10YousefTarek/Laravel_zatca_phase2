@@ -14,7 +14,7 @@ $invoice_line = <<<XML
             <cbc:Name>__Name</cbc:Name>ClassifiedTaxCategory
         </cac:Item>
         <cac:Price>
-            <cbc:PriceAmount currencyID="SAR">10</cbc:PriceAmount>AllowanceCharge
+            <cbc:PriceAmount currencyID="SAR">___PriceAmount</cbc:PriceAmount>AllowanceCharge
         </cac:Price>
     </cac:InvoiceLine>
 XML;
