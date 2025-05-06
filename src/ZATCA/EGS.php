@@ -56,7 +56,7 @@ class EGS
         fwrite($private_key_file, $private_key);
         fwrite($csr_config_file, $this->defaultCSRConfig($solution_name));
 
-        $result = shell_exec("openssl req -new -sha256 -key $private_key_file_name -config $csr_config_file_name");
+        $result = shell_exec("openssl req -new -sha256 -key ".escapeshellarg($private_key_file_name)." -config ".escapeshellarg($csr_config_file_name));
         $result = explode('-----BEGIN CERTIFICATE REQUEST-----', $result);
         $result = $result[1];
 
