@@ -1,4 +1,6 @@
 
+# This Fork Solved some errors in the original repo
+ PriceAmount warrning, and openssl problem
 # This extension for laravel 10
 
 This extension allows you to use zatca phase2 in KSA develope by Eng/Mohammed alyousfy 
